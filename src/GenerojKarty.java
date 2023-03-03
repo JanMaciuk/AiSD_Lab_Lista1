@@ -22,10 +22,10 @@ public class GenerojKarty {
             if (!iterator.hasNext()) {iterator.add(new Karta(wartosc, kolor)); break;} // Jeżeli jestem na końcu listy, to dodaje tutaj.
             Karta nastepna = iterator.next();
             iterator.previous(); // cofam o jedno, bo pobranie wartości następnej karty przesunęło iterator
-            if (nastepna.getWartosc() < wartosc) {iterator.add(new Karta(wartosc,kolor)); break;}
+            if (nastepna.getWartosc() > wartosc) {iterator.add(new Karta(wartosc,kolor)); break;}
             if (nastepna.getWartosc() == wartosc && nastepna.getKolor() < kolor) {iterator.next(); continue;}
             if (nastepna.getWartosc() == wartosc && nastepna.getKolor() >= kolor) { iterator.add(new Karta(wartosc, kolor)); break;}
-            if (nastepna.getWartosc() > wartosc) {iterator.next();}
+            if (nastepna.getWartosc() < wartosc) {iterator.next();}
         }
 
     }

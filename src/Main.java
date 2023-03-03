@@ -45,14 +45,21 @@ public class Main {
                         case 1 -> karty = GenerojKarty.generujKarty();
                         case 2 -> printKarty(karty);
                         case 3 -> System.out.println("liczba kart:" + policzKarty(karty));
-                        case 4 ->
-                            //TODO
-                                System.out.println("wyświetl karty o podanej wartości");
-                        case 5 ->
-                            //TODO
-                                System.out.println("wyświetl karty o podanym kolorze");
+                        case 4 -> {
+                        System.out.println("Podaj szukaną wartosć karty (wartość numeryczna):");
+                        int wartosc = scanner.nextInt();
+                        scanner.nextLine();
+                        printKarty(FilterKart.kartyWartosci(karty, wartosc));
+                        }
+                        case 5 -> {
+                            System.out.println("Podaj szukany kolor karty (wartość numeryczna):");
+                            int kolor = scanner.nextInt();
+                            scanner.nextLine();
+                            printKarty(FilterKart.kartyKoloru(karty, kolor));
+                        }
                         case 6 ->
                             //TODO
+                            //Usuwanie kart i dodawanie trzech asów do testów
                                 System.out.println("usuń powtarzające się karty");
                     }
                 }
