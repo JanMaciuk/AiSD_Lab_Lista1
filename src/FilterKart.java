@@ -25,4 +25,25 @@ public class FilterKart {
         }
         return kartyWartosci;
     }
+    public static void usunPowtorki() {
+        Karta poprzednia = Main.karty.get(0);
+        Karta nastepna = Main.karty.get(1);
+        ListIterator<Karta> iterator  = Main.karty.listIterator();
+
+        while(iterator.hasNext()) {
+            poprzednia = iterator.next();
+            if (!iterator.hasNext()) break;
+            nastepna = iterator.next();
+            if (nastepna.getString().equals(poprzednia.getString())) iterator.previous();iterator.remove();
+            if (!iterator.hasNext()) break;
+            nastepna = iterator.next(); //uwzględniam możliwość, że powtórek jest wiele
+            iterator.previous();
+            while(iterator.hasNext()&&nastepna.getString().equals(poprzednia.getString())) { //jeżeli jest bardzo dużo powtórek
+                iterator.remove();
+                nastepna = iterator.next();
+                iterator.previous();
+            }
+        }
+        System.out.println("Usunięto powtarzające się karty");
+    }
 }
