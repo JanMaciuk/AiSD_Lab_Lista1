@@ -26,8 +26,8 @@ public class FilterKart {
         return kartyWartosci;
     }
     public static void usunPowtorki() {
-        Karta poprzednia = Main.karty.get(0);
-        Karta nastepna = Main.karty.get(1);
+        Karta poprzednia;
+        Karta nastepna;
         ListIterator<Karta> iterator  = Main.karty.listIterator();
 
         while(iterator.hasNext()) {
@@ -44,6 +44,6 @@ public class FilterKart {
                 iterator.previous();
             }
         }
-        System.out.println("Usunięto powtarzające się karty");
+        System.out.println("Usunięto powtarzające się karty (Jeżeli jakieś były)");
     }
 }

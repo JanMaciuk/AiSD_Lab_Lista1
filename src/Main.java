@@ -20,7 +20,8 @@ public class Main {
                     3 - Policz karty\s
                     4 - wyświetl karty o podanej wartości\s
                     5 - wyświetl karty o podanym kolorze\s
-                    6 - usuń powtarzające się karty\s""");
+                    6 - usuń powtarzające się karty\s
+                    7 - (Funkcja testowa) dodaj 3 asy Kier\s""");
             wybor = scanner.nextInt();
             scanner.nextLine();
             try {
@@ -30,19 +31,29 @@ public class Main {
                     case 2 -> printKarty(karty);
                     case 3 -> System.out.println("liczba kart:" + policzKarty(karty));
                     case 4 -> {
-                        System.out.println("Podaj szukaną wartosć karty (wartość numeryczna):");
+                        System.out.println("Podaj szukaną wartość karty (wartość numeryczna):");
                         int wartosc = scanner.nextInt();
                         scanner.nextLine();
                         printKarty(FilterKart.kartyWartosci(karty, wartosc));
                     }
                     case 5 -> {
-                        System.out.println("Podaj szukany kolor karty (wartość numeryczna):");
+                        System.out.println("""
+                        Podaj szukany kolor karty (wartość numeryczna):
+                        0-Karo
+                        1-Kier
+                        2-Trefl
+                        3-Pik""");
                         int kolor = scanner.nextInt();
                         scanner.nextLine();
                         printKarty(FilterKart.kartyKoloru(karty, kolor));
                     }
                     case 6 -> FilterKart.usunPowtorki();
-                    //TODO dodanie 3 asów do testów
+                    default -> System.out.println("Błędny numer opcji");
+                    case 7 -> {
+                        karty.add(new Karta(1, 0));
+                        karty.add(new Karta(1, 0));
+                        karty.add(new Karta(1, 0));
+                    }
                 }
             }
             catch ( java.util.InputMismatchException | java.lang.NumberFormatException e) {
@@ -52,6 +63,7 @@ public class Main {
         }}
     public static void printKarty(ArrayList<Karta> karty) {
         ListIterator<Karta> iterator  = karty.listIterator();
+        if (!iterator.hasNext()) System.out.println("Brak kart do wyświetlenia");
         while(iterator.hasNext()) {
             System.out.println(iterator.next().getString());
         }

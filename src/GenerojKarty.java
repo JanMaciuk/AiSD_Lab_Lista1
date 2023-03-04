@@ -29,7 +29,7 @@ public class GenerojKarty {
         }
 
     }
-        System.out.println("Talia karty wygenerowana"+"\n");
+        System.out.println("Talia "+karty.size()+ " kart wygenerowana"+"\n");
 
         return karty;
     }
