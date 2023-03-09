@@ -12,7 +12,7 @@ public class GenerojKarty {
         int kolor = ThreadLocalRandom.current().nextInt(0, 3);
         karty.add(new Karta(wartosc, kolor));
 
-    while(true) {
+    for(;;) {
         wartosc = ThreadLocalRandom.current().nextInt(0, 13);
         if (wartosc == 0) {break;}
         kolor = ThreadLocalRandom.current().nextInt(0, 3);

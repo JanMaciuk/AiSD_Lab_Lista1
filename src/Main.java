@@ -50,9 +50,9 @@ public class Main {
                     case 6 -> FilterKart.usunPowtorki();
                     default -> System.out.println("Błędny numer opcji");
                     case 7 -> {
-                        karty.add(new Karta(1, 0));
-                        karty.add(new Karta(1, 0));
-                        karty.add(new Karta(1, 0));
+                        karty.add(0,new Karta(1, 0));
+                        karty.add(0,new Karta(1, 0));
+                        karty.add(0,new Karta(1, 0));
                     }
                 }
             }
